@@ -38,5 +38,7 @@ public interface UserService {
 	public List<User> findAllCandidatesForATestByAdminId(long testId, long adminId);
 
 	void deleteByUsername(String username);
+	
+	void deleteByEmail(String email);
 
 }

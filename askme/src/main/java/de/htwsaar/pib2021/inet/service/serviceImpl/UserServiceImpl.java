@@ -89,7 +89,6 @@ public class UserServiceImpl implements UserService {
 
 	public List<User> findAllUsersByAdminId(long adminId) {
 		List<Long> idsOfUsersBelongToAdmin = userRepository.findAllIdsOfOwnUsers(adminId);
-		System.out.println(idsOfUsersBelongToAdmin);
 		List<User> users = new ArrayList<User>();
 		for (Long id : idsOfUsersBelongToAdmin) {
 			Optional<User> user = userRepository.findById(id);
@@ -101,7 +100,6 @@ public class UserServiceImpl implements UserService {
 
 	public List<User> findAllActiveUsersByAdminId(long adminId) {
 		List<Long> idsOfUsersBelongToAdmin = userRepository.findAllIdsOfOwnUsers(adminId);
-		System.out.println(idsOfUsersBelongToAdmin);
 		List<User> users = new ArrayList<User>();
 		for (Long id : idsOfUsersBelongToAdmin) {
 			Optional<User> user = userRepository.findById(id);
@@ -136,6 +134,11 @@ public class UserServiceImpl implements UserService {
 	public void deleteByUsername(String username) {
 		userRepository.deleteByUsername(username);
 
+	}
+
+	@Override
+	public void deleteByEmail(String email) {
+		userRepository.deleteByEmail(email);
 	}
 
 }

@@ -83,6 +83,22 @@ public class RequestsController {
 
 		return "requests";
 	}
+	
+	/**
+	 *
+	 *
+	 * @param email
+	 * @param redirectAttributes
+	 * @return
+	 *
+	 * @author Feras Ejneid
+	 */
+	@RequestMapping(value = "/delete-request")
+	public String deleteUser(@RequestParam String email, RedirectAttributes redirectAttributes) {
+		userService.deleteByEmail(email);
+		redirectAttributes.addFlashAttribute("action", "deleteRequest");
+		return "redirect:/requests";
+	}
 
 	/**
 	 *

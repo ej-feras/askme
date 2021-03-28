@@ -64,7 +64,7 @@ public class UserController {
 	 *
 	 * @author Feras Ejneid
 	 */
-	@RequestMapping(value = "/delete-user")
+	@RequestMapping(value = "/delete-user",  method = RequestMethod.POST)
 	public String deleteUser(@RequestParam Long userId, RedirectAttributes redirectAttributes) {
 		confirmationTokenService.deleteByUserId(userId);
 		resultService.deleteByExamineeId(userId);
