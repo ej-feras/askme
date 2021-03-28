@@ -69,6 +69,7 @@ Before you continue, ensure you have met the following requirements:
 2. Replace the username and the password of the database with your credentials. <img src="images/Username_passsword for database.PNG" raw=true alt="database-credentials"/><br/>
 3. To run the program right click on the project in STS, then on Run As Spring boot App <img src="images/Run program.png" raw=true alt="run" style="margin-right: 10px;"/><br/>
 4. Open the browser and go to:    ```localhost:8083/login```
+5. You can log in as an administrator with the user name: fejneid and the password: 123 or create a new administrator account
 
 
 ## Use Cases / Use Case Diagram <a name="diagram1"/>
