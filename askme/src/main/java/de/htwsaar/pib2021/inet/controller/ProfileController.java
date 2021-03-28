@@ -64,6 +64,8 @@ public class ProfileController {
 			userToBeEdited.setEmail(user.getEmail());
 		if(!user.getPassword().isEmpty())
 			userToBeEdited.setPassword(passwordEncoder.encode(user.getPassword()));
+		if(!user.getInstitution().trim().isEmpty())
+			userToBeEdited.setInstitution(user.getInstitution());
 		if(!user.getAddress().getCity().trim().isEmpty())
 			userToBeEdited.getAddress().setCity(user.getAddress().getCity());
 		if(!user.getAddress().getStreet().trim().isEmpty())
