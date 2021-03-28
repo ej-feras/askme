@@ -538,32 +538,32 @@
 					<div th:if="${param.logout}" class="alert alert-success">You have been logged out.</div>
 					<h2 class="title">Sign in</h2>
 					<div class="input-field">
-						<i class="fas fa-user"></i> <input type="text" name="username" placeholder="Username" />
+						<i class="fas fa-user"></i> <input type="text" name="username" placeholder="Username" required/>
 					</div>
 					<div class="input-field">
-						<i class="fas fa-lock"></i> <input type="password" name="password" placeholder="Password" />
+						<i class="fas fa-lock"></i> <input type="password" name="password" placeholder="Password" required />
 					</div>
 					<input type="submit" value="Login" class="btn solid" />
 				</form>
 				<form action="#" th:action="@{/signup}" th:object="${user}" method="POST" class="sign-up-form">
 					<h2 class="title">Sign up</h2>
 					<div class="input-field">
-						<i class="fas fa-user"></i> <input th:field="*{firstName}" name="firstName" type="text" placeholder="First name" />
+						<i class="fas fa-user"></i> <input th:field="*{firstName}" name="firstName" type="text" placeholder="First name" required/>
 					</div>
 					<div class="input-field">
-						<i class="fas fa-user"></i> <input th:field="*{lastName}" name="lastName" type="text" placeholder="Last name" />
+						<i class="fas fa-user"></i> <input th:field="*{lastName}" name="lastName" type="text" placeholder="Last name" required/>
 					</div>
 					<div class="input-field">
-						<i class="fas fa-user"></i> <input type="text" name="username" th:field="*{username}" placeholder="User name" />
+						<i class="fas fa-user"></i> <input type="text" name="username" th:field="*{username}" placeholder="User name" required/>
 					</div>
 					<div class="input-field">
-						<i class="fas fa-envelope"></i> <input type="email" name="email" th:field="*{email}" placeholder="Your Email" />
+						<i class="fas fa-envelope"></i> <input type="email" name="email" th:field="*{email}" placeholder="Your Email" required/>
 					</div>
 					<div id="adminEmailContainer" class="input-field">
-						<i class="fas fa-envelope"></i> <input id="adminEmail" name="adminEmail" type="email" placeholder="Email of your Admin" />
+						<i class="fas fa-envelope"></i> <input id="adminEmail" name="adminEmail" type="email" placeholder="Email of your Admin" required/>
 					</div>
 					<div class="input-field">
-						<i class="fas fa-lock"></i> <input type="password" name="password" th:field="*{password}" placeholder="Password" />
+						<i class="fas fa-lock"></i> <input type="password" name="password" th:field="*{password}" placeholder="Password" required/>
 					</div>
 					<div class="toggle">
 						<input type="radio" name="role" value="admin" id="adminRadio" checked="checked" /> <label for="adminRadio">Admin</label> <input type="radio" name="role" value="user" id="userRadio" /> <label for="userRadio">User</label>

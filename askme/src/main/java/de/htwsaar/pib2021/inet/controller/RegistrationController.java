@@ -159,9 +159,12 @@ public class RegistrationController {
 	 * @author Feras Ejneid
 	 */
 	private User createUserWithRole(User user, String role) {
-		user.setPassword(passwordEncoder.encode(user.getPassword().trim()));
-		user.setUsername(user.getUsername().trim().toLowerCase());
-		user.setRole("ROLE_USER");
+		if(!user.getPassword().trim().isEmpty())
+			user.setPassword(passwordEncoder.encode(user.getPassword().trim()));
+		if(!user.getUsername().trim().isEmpty())
+			user.setUsername(user.getUsername().trim().toLowerCase());
+		if(!user.getRole().isEmpty())
+			user.setRole("ROLE_USER");
 		if (role.equalsIgnoreCase("admin")) {
 			user.setRole("ROLE_ADMIN");
 		}
