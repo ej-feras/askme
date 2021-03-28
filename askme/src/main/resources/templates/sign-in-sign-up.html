@@ -554,7 +554,7 @@
 						<i class="fas fa-user"></i> <input th:field="*{lastName}" name="lastName" type="text" placeholder="Last name" required/>
 					</div>
 					<div class="input-field">
-						<i class="fas fa-user"></i> <input type="text" name="username" th:field="*{username}" placeholder="User name" required/>
+						<i class="fas fa-user"></i> <input type="text" name="username" th:field="*{username}" placeholder="User name" minlength="7"  required/>
 					</div>
 					<div class="input-field">
 						<i class="fas fa-envelope"></i> <input type="email" name="email" th:field="*{email}" placeholder="Your Email" required/>
@@ -563,7 +563,7 @@
 						<i class="fas fa-envelope"></i> <input id="adminEmail" name="adminEmail" type="email" placeholder="Email of your Admin" required/>
 					</div>
 					<div class="input-field">
-						<i class="fas fa-lock"></i> <input type="password" name="password" th:field="*{password}" placeholder="Password" required/>
+						<i class="fas fa-lock"></i> <input type="password" name="password" th:field="*{password}" placeholder="Password" minlength="7" required/>
 					</div>
 					<div class="toggle">
 						<input type="radio" name="role" value="admin" id="adminRadio" checked="checked" /> <label for="adminRadio">Admin</label> <input type="radio" name="role" value="user" id="userRadio" /> <label for="userRadio">User</label>

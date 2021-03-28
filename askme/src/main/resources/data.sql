@@ -1,4 +1,4 @@
-insert IGNORE into `askmedb`.user (id,create_date,email,enabled,first_name, last_name, modify_date, password,role,username) values(1,'2021-03-17 17:22:29.637000','admin@gmail.com', 1 ,'adminFirstName','adminLastName','2021-03-17 17:22:29.637000','$2a$10$0IRR38Ff/texOTJeGCWmqO6mXFoM2XoEGq0RJEyI62pu4nsnc8SVS','ROLE_ADMIN','admin');
+insert IGNORE into `askmedb`.user (id,create_date,email,enabled,first_name, last_name, modify_date, password,role,username) values(1,'2021-03-17 17:22:29.637000','admin@gmail.com', 1 ,'Feras','Ejneid','2021-03-17 17:22:29.637000','$2a$10$0IRR38Ff/texOTJeGCWmqO6mXFoM2XoEGq0RJEyI62pu4nsnc8SVS','ROLE_ADMIN','fejneid');
 insert IGNORE into `askmedb`.userseq value (2);
 
 
