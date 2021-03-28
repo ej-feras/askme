@@ -322,7 +322,8 @@
 	<script th:src="@{/js/dashboard.js}"></script>
 	<script th:src="@{/js/questions.js}"></script>
 	<script th:inline="javascript">
-	var questions = /*[[${questions}]]*/ initModals(questions);
+	var questions = /*[[${questions}]]*/ '';
+	initModals(questions);
 	var action = /*[[${action}]]*/ '';
 	if(action == "saveQuestion") {
 		iziToast.success({
