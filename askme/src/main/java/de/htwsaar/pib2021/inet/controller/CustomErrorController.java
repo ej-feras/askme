@@ -25,7 +25,7 @@ public class CustomErrorController implements ErrorController {
 				errorPage = "error/404";
 
 			} else if (statusCode == HttpStatus.METHOD_NOT_ALLOWED.value()) {
-				// handle HTTP 4005 Forbidden error
+				// handle HTTP 405 Forbidden error
 				errorPage = "error/405";
 
 			} else if (statusCode == HttpStatus.FORBIDDEN.value()) {

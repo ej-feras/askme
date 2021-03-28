@@ -52,7 +52,7 @@
 											<div class="col-md-5">
 												<div class="form-group">
 													<label class="bmd-label-floating">Institution name</label>
-													<input type="text" class="form-control">
+													<input th:value="${user.institution}" th:field="*{institution}" type="text" class="form-control">
 												</div>
 											</div>
 											<div class="col-md-3">
@@ -81,23 +81,23 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div class="form-group">
-													<label class="bmd-label-floating">Adress</label> type="text" class="form-control"> </div>
+													<label class="bmd-label-floating">Street</label><input th:value="${user.address != null ? user.address.street : ''}" th:field="*{address.street}" type="text" class="form-control"> </div>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-4">
 												<div class="form-group">
-													<label class="bmd-label-floating">City</label> <input type="text" class="form-control">
+													<label class="bmd-label-floating">City</label> <input  th:value="${user.address != null ? user.address.city : ''}" th:field="*{address.city}" type="text" class="form-control">
 												</div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group">
-													<label class="bmd-label-floating">Country</label> <input type="text" class="form-control">
+													<label class="bmd-label-floating">Country</label> <input th:value="${user.address != null ? user.address.country :''}" th:field="*{address.country}" type="text" class="form-control">
 												</div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group">
-													<label class="bmd-label-floating">Postal Code</label> <input type="text" class="form-control">
+													<label class="bmd-label-floating">Postal Code</label> <input th:value="${user.address != null and user.address.postalCode &gt; 1  ? user.address.postalCode : ''}" th:field="*{address.postalCode}" type="number" step="0" class="form-control">
 												</div>
 											</div>
 										</div>

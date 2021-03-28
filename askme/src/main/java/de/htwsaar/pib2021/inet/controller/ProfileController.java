@@ -53,18 +53,27 @@ public class ProfileController {
 	 * @author Feras Ejneid
 	 */
 	@RequestMapping(value = "/update-profile", method = RequestMethod.POST)
-	public String saveExam(@AuthenticationPrincipal UserDetailsImpl userDetails, @ModelAttribute("user") User user,
+	public String updateProfile(@AuthenticationPrincipal UserDetailsImpl userDetails, @ModelAttribute("user") User user,
 			RedirectAttributes redirectAttributes) {
 		User userToBeEdited = userDetails.getUser();
-
-		userToBeEdited.setFirstName(user.getFirstName());
-		userToBeEdited.setLastName(user.getLastName());
-		userToBeEdited.setEmail(user.getEmail());
+		if(!user.getFirstName().trim().isEmpty())
+			userToBeEdited.setFirstName(user.getFirstName());
+		if(!user.getLastName().trim().isEmpty())
+			userToBeEdited.setLastName(user.getLastName());
+		if(!user.getEmail().trim().isEmpty())
+			userToBeEdited.setEmail(user.getEmail());
 		if(!user.getPassword().isEmpty())
 			userToBeEdited.setPassword(passwordEncoder.encode(user.getPassword()));
+		if(!user.getAddress().getCity().trim().isEmpty())
+			userToBeEdited.getAddress().setCity(user.getAddress().getCity());
+		if(!user.getAddress().getStreet().trim().isEmpty())
+			userToBeEdited.getAddress().setStreet(user.getAddress().getStreet());
+		if(!user.getAddress().getCountry().trim().isEmpty())
+			userToBeEdited.getAddress().setCountry(user.getAddress().getCountry());
+		if(user.getAddress().getPostalCode() > 0)
+			userToBeEdited.getAddress().setPostalCode(user.getAddress().getPostalCode());
 		
 		userService.update(userToBeEdited);
-
 		redirectAttributes.addFlashAttribute("action", "updateProfile");
 
 		return "redirect:/profile";

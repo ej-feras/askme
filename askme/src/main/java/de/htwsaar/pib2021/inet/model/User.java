@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -36,8 +37,12 @@ public class User {
 	private String username;
 	private String email;
 	private String password;
+	private String institution;
 	private String role;
 	private boolean enabled;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "address_id", referencedColumnName = "id", nullable = true)
+	private Address address= new Address();
 
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
@@ -56,6 +61,10 @@ public class User {
 	@JoinTable(name = "users_tests", joinColumns = { @JoinColumn(name = "userTobeTested_id") }, inverseJoinColumns = {
 			@JoinColumn(name = "test_id") })
 	private List<Test> tests = new ArrayList<Test>();
+
+	public User() {
+		super();
+	}
 
 	public long getId() {
 		return id;
@@ -151,6 +160,22 @@ public class User {
 
 	public void setTests(List<Test> tests) {
 		this.tests = tests;
+	}
+
+	public String getInstitution() {
+		return institution;
+	}
+
+	public void setInstitution(String institution) {
+		this.institution = institution;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	@Override
