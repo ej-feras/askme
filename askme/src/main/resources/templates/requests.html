@@ -84,6 +84,11 @@
 												<td th:text="${userRequest.email}"></td>
 												<td th:text="${userRequest.createDate}"></td>
 												<td>
+													<button class="acceptBtn btn btn-sm " data-toggle="modal"
+														data-target="#editModal"
+														style="color: white; background-color: green">
+														<i class="fas fa-plus"></i>
+													</button>
 													<button class="deleteBtn btn btn-warning btn-sm " data-toggle="modal" data-target="#deleteModal" style="background-color: #E5B177">
 														<i class="fas fa-trash-alt" style="color: white"></i>
 													</button>
@@ -104,6 +109,55 @@
 					</div>
 				</div>
 			</div>
+
+			<div sec:authorize="hasRole('ADMIN')" class="modal fade"
+				id="editModal" tabindex="-1" role="dialog"
+				aria-labelledby="ModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="ModalLabel">Edit Test</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+
+							<form id="send-confirm-form" action="#"
+								th:action="@{/send-confirm}" method="post"
+								th:object="${formView}">
+								<input id="toEmail" type="hidden" name="toEmail">
+
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form__group ">
+											<input id="fromEmail" type="email" name="fromEmail"
+												th:field="*{fromEmail}" class="form__field"> <label
+												class=" form__label" for="fromEmail">From email: </label>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div class="form__group ">
+											<input id="emailPassword" type="password"
+												name="emailPassword" th:field="*{emailPassword}"
+												class="form__field"> <label class=" form__label"
+												for="emailPassword">Email password</label>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<a class="btn text-muted" data-dismiss="modal">Close</a>
+									<button id="saveModalButton" class="btn btn-primary pull-right">
+										<i class="fas fa-pencil-alt"></i><span> Save changes</span>
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		</div>
 		<!-- jQuery UI -->
 		<script th:src="@{/js/jquery/jquery-ui.min.js}"></script>

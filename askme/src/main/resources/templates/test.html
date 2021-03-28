@@ -210,7 +210,8 @@ function removeLoader() {
 				updateClock();
 				var timeinterval = setInterval(updateClock, 1000);
 			}
-			var time = /*[[${test.time}]]*/ timeLeft = time * 60;
+			var time = /*[[${test.time}]]*/ 
+			timeLeft = time * 60;
 			initializeClock('clockdiv', timeLeft);
 		});
 	});

@@ -41,3 +41,6 @@ insert IGNORE  into `askmedb`.answer values
 (20,1,'2021-03-17 19:01:50.256008','2021-03-17 19:01:51.254008',0,'36',5);
 
 insert IGNORE into `askmedb`.answerseq value(21);
+
+Insert IGNORE into `askmedb`.resultseq value (1);
+Insert IGNORE into `askmedb`.tokenseq value (1);
