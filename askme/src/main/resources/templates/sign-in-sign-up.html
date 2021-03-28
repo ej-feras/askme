@@ -560,7 +560,7 @@
 						<i class="fas fa-envelope"></i> <input type="email" name="email" th:field="*{email}" placeholder="Your Email" required/>
 					</div>
 					<div id="adminEmailContainer" class="input-field">
-						<i class="fas fa-envelope"></i> <input id="adminEmail" name="adminEmail" type="email" placeholder="Email of your Admin" required/>
+						<i class="fas fa-envelope"></i> <input id="adminEmail" name="adminEmail" type="email" placeholder="Email of your Admin" />
 					</div>
 					<div class="input-field">
 						<i class="fas fa-lock"></i> <input type="password" name="password" th:field="*{password}" placeholder="Password" minlength="7" required/>
@@ -614,9 +614,11 @@
 	$("#adminEmailContainer").hide();
 	$('#userRadio').click(function() {
 		if($(this).is(':checked')) $("#adminEmailContainer").show();
+		$("#adminEmail").prop('required',true);
 	});
 	$('#adminRadio').click(function() {
 		if($(this).is(':checked')) $("#adminEmailContainer").hide();
+		$("#adminEmail").prop('required',false);
 	});
 	</script>
 </body>
