@@ -12,11 +12,9 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/test.css}">
 	<!--===============================================================================================-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" integrity="sha512-O03ntXoVqaGUTAeAmvQ2YSzkCvclZEcPQu1eqloPaHfJ5RuNGiS4l+3duaidD801P50J28EHyonCV06CUlTSag==" crossorigin="anonymous" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.js" integrity="sha512-OmBbzhZ6lgh87tQFDVBHtwfi6MS9raGmNvUNTjDIBb/cgv707v9OuBVpsN6tVVTLOehRFns+o14Nd0/If0lE/A==" crossorigin="anonymous"></script>
 	<script th:src="@{/js/jquery-3.5.1.js}"></script>
-	<script th:src="@{/js/jquery.dataTables.js}"></script>
-	<script th:src="@{/js/dataTables.bootstrap4.js}"></script>
-	<script th:src="@{/js/dataTables.responsive.js}"></script>
-	<script th:src="@{/js/responsive.bootstrap4.js}"></script>
 	<!--===============================================================================================-->
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
@@ -24,8 +22,6 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{/css/dataTables.bootstrap4.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{/css/responsive.bootstrap4.css}">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" th:href="@{/css/normalize.css}" />
 	<link rel="stylesheet" th:href="@{/css/dashboard.css}">
@@ -33,7 +29,6 @@
 	<link rel="stylesheet" th:href="@{/css/form.css}">
 	<!--===============================================================================================-->
 	<script th:src="@{/js/jquery-3.5.1.js}"></script>
-	<script th:src="@{/js/responsive.bootstrap4.js}"></script>
 	<!--===============================================================================================-->
 	<link rel="stylesheet" th:href="@{/css/bootstrap-select.css}" />
 	<style type="text/css">
@@ -228,15 +223,13 @@ function pause() {
 			$("#result-form").trigger("reset");
 			$('#result-form').submit();
 		} else {
-			const Toast = Swal.mixin({
-				toast: true,
-				position: 'top',
-				showConfirmButton: true
-			})
-			Toast.fire({
-				icon: 'warning',
-				title: 'If you clicked anywhere outside of the Test Content page again, the test will be submitted automatically!'
-			})
+			iziToast.warning({
+			title: 'Warning',
+			message: 'If you clicked anywhere outside of the Test Content page again, the test will be submitted automatically!',
+			position: 'topCenter',
+			timeout: 200000,
+		});
+			
 		}
 	}
 	increase();
