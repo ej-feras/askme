@@ -81,8 +81,6 @@ The website was designed in such a way that every normal user must have an admin
 
 <img src="images/Signup_Login Activity Diagram (Askme).png" raw=true /><br/>
 
-## Demo   <a name="demo"/>
-https://youtu.be/3JwMvaa_Dms
 
 
 
